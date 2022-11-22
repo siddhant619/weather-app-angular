@@ -8,8 +8,10 @@ import { WeatherService } from './weather.service';
 })
 export class AppComponent  implements OnInit{
   city :string= 'paris';
+
   constructor(private weatherSvc: WeatherService){}
+
   ngOnInit(){
-    this.weatherSvc.getWeatherInfo(this.city);
+    //this.weatherSvc.getWeatherInfo(this.city);
   }
 }

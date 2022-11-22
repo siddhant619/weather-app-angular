@@ -1,3 +1,40 @@
-<div class="">
-  <h1 class="text-3xl font-bold text-blue-600 underline">Hello world!</h1>
+<div class="py-5 flex flex-col gap-y-4 items-center">
+  <div class="flex justify-center">
+    <app-cities></app-cities>
+  </div>
+  <div
+    class="overflow-hidden flex flex-col rounded-md text-white bg-indigo-700 shadow-lg w-1/4"
+  >
+    <div
+      class="flex flex-col justify-center items-center py-16 border-red-800 h-1/2 bg-indigo-600"
+    >
+      <div>New Delhi</div>
+      <h1 class="text-4xl font-bold">30 &#x2103;</h1>
+    </div>
+
+    <!-- more info -->
+    <div class="h-1/2 bg-indigo-500 p-2">
+      <p class="pb-1">More Information</p>
+      <div
+        class="grid gap-2 grid-cols-2 grid-rows-2 bg-indigo-400 rounded-b-md"
+      >
+        <div class="py-4 flex justify-center">
+          <i class="fa-regular fa-temperature-arrow-down"></i>
+          <span>34&#x2103;</span>
+        </div>
+        <div class="py-4 flex justify-center">
+          <i class="fa-regular fa-temperature-arrow-up"></i>
+          <span>28&#x2103;</span>
+        </div>
+        <div class="py-2 flex justify-center">
+          <i class="fa-regular fa-temperature-arrow-down"></i>
+          <span>14%</span>
+        </div>
+        <div class="py-2 flex justify-center">
+          <i class="fa-regular fa-temperature-arrow-up"></i>
+          <span>2.34 km/h</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
