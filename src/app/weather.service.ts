@@ -1,29 +1,24 @@
 
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { environment } from "src/environments/environment";
+import { WeatherData } from "./cities/weather.model";
 @Injectable({
     providedIn: 'root'
 })
 export class WeatherService{
     constructor(private http: HttpClient){}
     headers={
-        'X-RapidAPI-Key': '649503419amsh1554b27ddf6412dp17462fjsn9cc05ac323b0',
-        'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+        'X-RapidAPI-Host' : environment.XRapidApiHostValue ,
+        'X-RapidAPI-Key' : environment.XRapidApiKeyValue
     }
-    getWeatherInfo(location : string){
-        this.http.get('https://weatherapi-com.p.rapidapi.com/current.json',
+    getWeatherInfo(location : string): Observable<WeatherData>{
+        return this.http.get<WeatherData>(environment.weatherApiBaseUrl ,
             {
                 headers: new HttpHeaders(this.headers),
                 params: {'q': location}
             }
-            ).subscribe({
-                next: response=>{
-                        console.log('from weather: ', response)
-                        },
-                error:error=>{
-                        console.log('error!!: ', error)
-                        }
-                }
             )
 
     }

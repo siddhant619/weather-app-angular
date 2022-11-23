@@ -1,15 +1,29 @@
 <div class="py-5 flex flex-col gap-y-4 items-center">
   <div class="flex justify-center">
-    <app-cities></app-cities>
+    <app-cities (citySelectedEvent)="onCitySelected($event)"></app-cities>
   </div>
   <div
-    class="overflow-hidden flex flex-col rounded-md text-white bg-indigo-700 shadow-lg w-1/4"
+    class="overflow-hidden flex flex-col rounded-md text-white bg-indigo-700 shadow-lg md:w-1/4 w-1/2"
   >
-    <div
-      class="flex flex-col justify-center items-center py-16 border-red-800 h-1/2 bg-indigo-600"
-    >
-      <div>New Delhi</div>
-      <h1 class="text-4xl font-bold">30 &#x2103;</h1>
+    <div class="upper-data relative h-1/2">
+      <img
+        *ngIf="weatherInfo.temp_c > 15"
+        class="absolute top-0 left-0 w-full h-full"
+        src="assets/images/sunny.jpeg"
+      />
+      <img
+        *ngIf="weatherInfo.temp_c <= 15"
+        class="absolute top-0 left-0 w-full h-full"
+        src="assets/images/cold.jpg"
+      />
+      <div
+        class="relative z-10 flex flex-col justify-center items-center py-16 border-red-800"
+      >
+        <div>{{ weatherInfo.city }}</div>
+        <h1 class="text-5xl font-bold">
+          {{ weatherInfo.temp_c | number: "1.0-0" }} &#x2103;
+        </h1>
+      </div>
     </div>
 
     <!-- more info -->
@@ -18,21 +32,21 @@
       <div
         class="grid gap-2 grid-cols-2 grid-rows-2 bg-indigo-400 rounded-b-md"
       >
-        <div class="py-4 flex justify-center">
-          <i class="fa-regular fa-temperature-arrow-down"></i>
-          <span>34&#x2103;</span>
+        <div class="py-4 flex flex-col justify-items-center items-center">
+          <div class="font-bold">{{ weatherInfo.temp_c }}&#x2103;</div>
+          <div class="text-xs">Temperature</div>
         </div>
-        <div class="py-4 flex justify-center">
-          <i class="fa-regular fa-temperature-arrow-up"></i>
-          <span>28&#x2103;</span>
+        <div class="py-4 flex flex-col justify-items-center items-center">
+          <div class="font-bold">{{ weatherInfo.precip_mm }}mm</div>
+          <div class="text-xs">Precipitation</div>
         </div>
-        <div class="py-2 flex justify-center">
-          <i class="fa-regular fa-temperature-arrow-down"></i>
-          <span>14%</span>
+        <div class="py-2 flex flex-col justify-items-center items-center">
+          <div class="font-bold">{{ weatherInfo.humidity }}%</div>
+          <div class="text-xs">Humidity</div>
         </div>
-        <div class="py-2 flex justify-center">
-          <i class="fa-regular fa-temperature-arrow-up"></i>
-          <span>2.34 km/h</span>
+        <div class="py-2 flex flex-col justify-items-center items-center">
+          <div class="font-bold">{{ weatherInfo.wind }} km/h</div>
+          <div class="text-xs">Wind</div>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cities',
@@ -6,11 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cities.component.css']
 })
 export class CitiesComponent implements OnInit {
-  cities: string[]=['Delhi','California', 'Sydney', 'Tokyo', 'Chennai']
-
+  cities: string[]=['new delhi','california', 'san jose', 'sydney', 'chennai']
+  @Output() citySelectedEvent= new EventEmitter<string>()
   constructor() { }
 
   ngOnInit(): void {
+  }
+  citySelected(city: string){
+    this.citySelectedEvent.emit(city)
   }
 
 }
