@@ -5,14 +5,18 @@ import { AppComponent } from './app.component';
 
 import { WeatherService } from './weather.service';
 import { CitiesComponent } from './cities/cities.component';
+import { FormsModule } from '@angular/forms';
+import { CityInputComponent } from './city-input/city-input.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CitiesComponent
+    CitiesComponent,
+    CityInputComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule
+    BrowserModule, HttpClientModule, FormsModule, FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

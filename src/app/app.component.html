@@ -1,6 +1,9 @@
 <div class="py-5 flex flex-col gap-y-4 items-center">
   <div class="flex justify-center">
-    <app-cities (citySelectedEvent)="onCitySelected($event)"></app-cities>
+    <!-- <app-cities (citySelectedEvent)="onCitySelected($event)"></app-cities> -->
+    <app-city-input
+      (cityEnteredEvent)="onCitySelected($event)"
+    ></app-city-input>
   </div>
   <div
     class="overflow-hidden flex flex-col rounded-md text-white bg-indigo-700 shadow-lg md:w-1/4 w-1/2"

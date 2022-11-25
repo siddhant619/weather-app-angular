@@ -1,0 +1,13 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <div class="flex items-center relative">
+    <input
+      class="bg-indigo-400 text-white border-none rounded-full px-3 py-2 focus:outline-none placeholder-gray-200"
+      type="text"
+      name="city"
+      placeholder="Enter city"
+      ngModel
+      required
+    />
+    <fa-icon class="absolute right-4 text-gray-200" [icon]="faSearch"></fa-icon>
+  </div>
+</form>
